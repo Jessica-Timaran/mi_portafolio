@@ -16,6 +16,10 @@
 - **Formspree** para formularios de contacto
 - **Netlify** para hosting
 
+## 🌐 Portafolio
+
+Puedes ver mi portafolio en línea aquí: [Mi Portafolio](https://portafolio-jessica-timaran.netlify.app/)
+
 ## 👩‍💻 Autora
 
 **Jessica Timaran**
