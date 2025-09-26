@@ -2,7 +2,7 @@
 
 **Desarrolladora Full Stack | Python | JavaScript | React**
 
-[![GitHub](https://github.com/Jessica-Timaran)](https://github.com/Jessica-Timaran/mi_portafolio.git)
+[![GitHub](https://img.shields.io/badge/GitHub-Portafolio-blue)](https://github.com/Jessica-Timaran/mi_portafolio)
 
 ## ✨ Características
 
