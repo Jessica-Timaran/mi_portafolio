@@ -202,26 +202,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Formulario de contacto
     const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Aquí iría la lógica para enviar el formulario
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.querySelector('span').textContent;
-            
-            submitBtn.querySelector('span').textContent = 'Enviando...';
-            submitBtn.disabled = true;
-            
-            // Simular envío
-            setTimeout(() => {
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.querySelector('span').textContent;
+        submitBtn.querySelector('span').textContent = 'Enviando...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(this);
+
+        try {
+            const response = await fetch('https://formspree.io/f/xovkvgay', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
                 alert('¡Mensaje enviado con éxito! Te contactaré pronto.');
-                submitBtn.querySelector('span').textContent = originalText;
-                submitBtn.disabled = false;
                 this.reset();
-            }, 2000);
-        });
-    }
+            } else {
+                alert('Hubo un error al enviar el mensaje. Intenta de nuevo.');
+            }
+        } catch (error) {
+            alert('Hubo un error al enviar el mensaje. Intenta de nuevo.');
+            console.error(error);
+        }
+
+        submitBtn.querySelector('span').textContent = originalText;
+        submitBtn.disabled = false;
+    });
+}
+
 
     // Efecto de escritura en el título (opcional)
     const heroTitle = document.querySelector('.hero-title');
